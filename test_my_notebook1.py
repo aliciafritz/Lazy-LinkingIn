@@ -1,29 +1,41 @@
-# import packages needed
-
 from testbook import testbook
+import pandas as pd
 
-@testbook("/Users/aliciafritz/Desktop/Lazy-LinkingIn/Feature1-Network-Analysis.ipynb", execute=True)
-def test_network_analysis(tb):
-    # check if the number of nodes in the graph is non-zero
-    num_nodes = tb.execute_cell("G.number_of_nodes()").result
-    assert num_nodes > 0, "Number of nodes is zero"
+# define test function using Testbook for first test of regular data
+@testbook('Feature1-Network-Analysis.ipynb', execute=True)
+def test_create_graph(tb):
+    # Retrieve the create_graph function from the notebook
+    create_graph = tb.ref("create_graph")
 
-    # check if the number of edges in the graph is non-zero
-    num_edges = tb.execute_cell("G.number_of_edges()").result
-    assert num_edges > 0, "Number of edges is zero"
+    # Call create_graph with the test data CSV file path
+    test_data_path = "/Users/aliciafritz/Desktop/TestData.csv"
+    my_graph = create_graph(test_data_path)
 
-    # check network statistics
-    tb.execute_cell("print('Number of nodes:', G.number_of_nodes())")
-    tb.execute_cell("print('Number of edges:', G.number_of_edges())")
-    tb.execute_cell("print('Average degree:', sum(dict(G.degree()).values()) / G.number_of_nodes())")
+    # Perform assertions to test the functionality
+    assert len(my_graph.nodes()) == 3
 
-    # get the output of the above cells
-    num_nodes_output = tb.cell_output()
-    num_edges_output = tb.cell_output()
-    avg_degree_output = tb.cell_output()
+# define test function using Testbook for second test of missing data
+@testbook('Feature1-Network-Analysis.ipynb', execute=True)
+def test_create_graph(tb):
+    # Retrieve the create_graph function from the notebook
+    create_graph = tb.ref("create_graph")
 
-    # check if network statistics are calculated correctly
-    expected_output = "Number of nodes: {}\nNumber of edges: {}\nAverage degree: {}".format(num_nodes, num_edges, (num_edges*2)/num_nodes)
-    assert num_nodes_output.strip() == expected_output.split('\n')[0], "Number of nodes calculation failed"
-    assert num_edges_output.strip() == expected_output.split('\n')[1], "Number of edges calculation failed"
-    assert avg_degree_output.strip() == expected_output.split('\n')[2], "Average degree calculation failed"
+    # Call create_graph with the test data CSV file path
+    test_data_path = "/Users/aliciafritz/Desktop/MissingTestData.csv"
+    my_graph = create_graph(test_data_path)
+
+    # Perform assertions to test the functionality
+    assert len(my_graph.nodes()) == 3
+
+# define test function using Testbook for third test of duplicated data
+@testbook('Feature1-Network-Analysis.ipynb', execute=True)
+def test_create_graph(tb):
+    # Retrieve the create_graph function from the notebook
+    create_graph = tb.ref("create_graph")
+
+    # Call create_graph with the test data CSV file path
+    test_data_path = "/Users/aliciafritz/Desktop/DuplicateTestData.csv"
+    my_graph = create_graph(test_data_path)
+
+    # Perform assertions to test the functionality
+    assert len(my_graph.nodes()) == 3
