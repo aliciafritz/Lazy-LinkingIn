@@ -8,7 +8,7 @@ def test_create_graph_regular_data(tb):
     create_graph = tb.ref("create_graph")
 
     # call create_graph with the test data CSV file path
-    test_data_path = "/Users/aliciafritz/Desktop/TestData.csv"
+    test_data_path = "NetworkTestData.csv"
     my_graph = create_graph(test_data_path)
 
     # perform assertions to test the functionality
@@ -21,7 +21,7 @@ def test_create_graph_missing_data(tb):
     create_graph = tb.ref("create_graph")
 
     # call create_graph with the test data CSV file path
-    test_data_path = "/Users/aliciafritz/Desktop/MissingTestData.csv"
+    test_data_path = "NetworkMissingTestData.csv"
     my_graph = create_graph(test_data_path)
 
     # perform assertions to test the functionality
@@ -34,7 +34,7 @@ def test_create_graph_duplicate_data(tb):
     create_graph = tb.ref("create_graph")
 
     # Call create_graph with the test data CSV file path
-    test_data_path = "/Users/aliciafritz/Desktop/DuplicateTestData.csv"
+    test_data_path = "NetworkDuplicateTestData.csv"
     my_graph = create_graph(test_data_path)
 
     # Perform assertions to test the functionality
