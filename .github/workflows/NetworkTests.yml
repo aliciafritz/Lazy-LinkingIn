@@ -2,11 +2,9 @@ name: NetworkTests
 on:
   push:
     branches:
-      - main
       - Feature1-Network-Analysis
   pull_request:
     branches:
-      - main
       - Feature1-Network-Analysis
 
 jobs:
