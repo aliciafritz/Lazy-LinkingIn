@@ -2,10 +2,10 @@ name: NetworkTests
 on:
   push:
     branches:
-      - Feature1-Network-Analysis
+      - main
   pull_request:
     branches:
-      - Feature1-Network-Analysis
+      - main
 
 jobs:
   test:
