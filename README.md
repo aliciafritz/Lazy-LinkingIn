@@ -11,5 +11,6 @@ User Documentation:  In order to use this code a csv file of LinkedIn data is ne
 The code features are:
   1. The first feature is to analyze connections spatially to understand their degree of similarity with each other and degree of connection and proximity with each other
   2. The second feature analyzes the growth of the network over time and highlights dated connections that might be worth reconnecting with.
-  3. The third feature is to analyze the search queries made within the LinkedIn profile to gain insight into the most frequent searches and how often searches are being made
+  3. The third feature is to analyze the search queries made within the LinkedIn profile to gain insight into the most frequent searches and how often searches are being made.
+
 For the code to run optimally, the .csv file format should have five columns of data with the first four columns containing text data (first name, last name, company, position) and the fifth column having calendar dates (month/day/year). Features one, two, and three will render visualizations with feature one and three also providing some information about the data as an output.
